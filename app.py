@@ -39,7 +39,7 @@ def handle_message(event):
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
-        url = 'https://notify-api.line.me/api/notify'
+    url = 'https://notify-api.line.me/api/notify'
     token = 'xqH30BaWlOVwIj8JYd2uT6deJlp8FMJgHMkBMyOgA9j'
     headers = {
         'Authorization': 'Bearer ' + token    # 設定權杖
