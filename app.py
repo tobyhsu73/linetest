@@ -39,7 +39,7 @@ def handle_message(event):
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
-    
+    '''
     url = 'https://notify-api.line.me/api/notify'
     token = 'xqH30BaWlOVwIj8JYd2uT6deJlp8FMJgHMkBMyOgA9j'
     headers = {
@@ -49,3 +49,4 @@ def handle_message(event):
         'message':'測試一下！'     # 設定要發送的訊息
     }
     data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
+    '''
