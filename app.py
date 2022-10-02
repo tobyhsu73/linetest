@@ -38,6 +38,15 @@ def handle_message(event):
     get_message = event.message.text
     if re.match("我要",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
+        url = 'https://notify-api.line.me/api/notify'
+        token = 'xqH30BaWlOVwIj8JYd2uT6deJlp8FMJgHMkBMyOgA9j'
+        headers = {
+            'Authorization': 'Bearer ' + token    # 設定權杖
+        }
+        data = {
+            'message': f"{get_message}"     # 設定要發送的訊息
+        }
+        data = requests.post(url, headers=headers, data=data)     
     '''
     if re.match("你是誰",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~")) 
@@ -47,13 +56,5 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, reply)
     if re.match("我要",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
-    url = 'https://notify-api.line.me/api/notify'
-    token = 'xqH30BaWlOVwIj8JYd2uT6deJlp8FMJgHMkBMyOgA9j'
-    headers = {
-        'Authorization': 'Bearer ' + token    # 設定權杖
-    }
-    data = {
-        'message': f"{get_message}"     # 設定要發送的訊息
-    }
-    data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
+  # 使用 POST 方法
     
