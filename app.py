@@ -36,8 +36,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     get_message = event.message.text
-    if re.match("我要",get_message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
+
     '''
     if re.match("你是誰",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~")) 
@@ -54,5 +53,7 @@ def handle_message(event):
     data = {
         'message': f"{get_message}"     # 設定要發送的訊息
     }
-    data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
+    if re.match("我要",get_message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
+        data = requests.post(url, headers=headers, data=data)   # 使用 POST 方法
     
