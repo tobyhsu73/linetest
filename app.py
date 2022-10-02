@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 from datetime import datetime
 
@@ -35,6 +36,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     get_message = event.message.text
+    if re.match("你是誰",get_message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~"))
     '''
     if re.match("你是誰",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~")) 
