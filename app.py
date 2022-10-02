@@ -45,7 +45,8 @@ def handle_message(event):
     # Send To Line
     reply = TextSendMessage(text=f"{get_message}")
     line_bot_api.reply_message(event.reply_token, reply)
-    
+    if re.match("我要",get_message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
     url = 'https://notify-api.line.me/api/notify'
     token = 'xqH30BaWlOVwIj8JYd2uT6deJlp8FMJgHMkBMyOgA9j'
     headers = {
