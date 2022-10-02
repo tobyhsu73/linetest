@@ -52,8 +52,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~")) 
         '''
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}")
-    line_bot_api.reply_message(event.reply_token, reply)
+    #reply = TextSendMessage(text=f"{get_message}")
+    #line_bot_api.reply_message(event.reply_token, reply)
     if re.match("我要",get_message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("好的，請您稍後"))
   # 使用 POST 方法
